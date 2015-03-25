@@ -127,10 +127,31 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public void openArrayList() throws FileNotFoundException {
+        String delim = ",";
+
+        try {
+            sc = new Scanner(new File(fcanciones)).useDelimiter(delim);
+            while (sc.hasNextLine()) {
+                linea = sc.nextLine();
+                String[] l = linea.split(",");
+                for (int i = 0; i < l.length; i += 5) {
+                    canciones.add(new Cancion(l[i], l[i + 1], l[i + 2], l[i + 3], l[i + 4]));
+                }
+
+            }
+        } catch (FileNotFoundException ex) {
+
+        } finally {
+            sc.close();
+        }
+    }
+    
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
         if(guardado==false){
         String[] elegir = {"Sí","No"};                    
-        int confirmar=JOptionPane.showOptionDialog(null, "¿Seguro que quieres salir sin guardar,Madafacka?", null,JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE ,null,elegir,null);
+        int confirmar=JOptionPane.showOptionDialog(null, "¿Seguro que quieres salir sin guardar?", null,JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE ,null,elegir,null);
                             switch (confirmar) {
                                 case 0:
                                     System.exit(0);
