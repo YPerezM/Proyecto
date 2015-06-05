@@ -7,7 +7,7 @@ package Clases;
 
 /**
  *
- * @author Toni
+ * @author administrador
  */
 public class Cancion {
     private String nombreC;
