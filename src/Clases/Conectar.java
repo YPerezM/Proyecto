@@ -14,7 +14,7 @@ public class Conectar {
     
     
     Connection conectar=null;
-    public Connection conexion(){
+    public  Connection conexion(){
         
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
